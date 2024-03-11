@@ -1,0 +1,38 @@
+ctrl shift p = ouvre la palette de commande
+ctrl , = ouvre les paramètres
+ctrl ks = panel de raccourci
+ctrl kt = changer de thème
+
+ctrl b = ouvrir et fermer la barre des fichiers
+ctrl f = recherche et f3 pour bouger sur les résultats
+ctrl shift f et fleche pour replace des mots
+ctrl shift x = extensions
+
+ctrl j = ouvrir terminal et fermer
+ZEN MODE : CTRL K puis relacher ctrl et appuyer sur z
+
+raccourcis du buffer (ligne en haut avec les diff fichiers ouverts) :
+ctrl p = voir tous les fichiers du repertoires
+ctrl w = fermer le fichier
+ctrl shift t pour reouvrir
+ctrl tab pour tab les fichiers et deplacer avec curseur
+drop le fichier à gauche et droite : ctrl 1 ou ctrl 2 pour changer de fichier
+
+le fichier :
+ctrl z
+ctrl y
+
+curseur
+selectionner toutes les mm str en dessous : ctrl d
+selectionner toutes les mm str ds le fichier : ctrl f2
+pour avoir pls curseur : maintenir alt et placer les curseur
+ctrl u pour enlever le dernier curseur ajouté
+bouger des lignes de place : on selectionne et alt + fleche clavier
+bouger de mots en mots : ctrl fleche
+selctionner une ligne : ctrl l
+si on à une fonction definie ds un autre fichier, on click f12 dessus et ca 
+redirige
+
+
+se diriger vers les erreurs : f8
+ctrl shift / pour mettre une ligne en commentaire 

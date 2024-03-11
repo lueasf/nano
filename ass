@@ -1,0 +1,3 @@
+SP = 13 = stack pointer
+LR = 14 = Link register, ce qu'on garde en mémoire
+PC = 15 = Program counter , instruction suivante

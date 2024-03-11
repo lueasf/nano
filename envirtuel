@@ -1,0 +1,21 @@
+
+ENV VIRTUEL
+Un environnement virtuel est une technique de développement en Python qui permet de créer 
+un espace isolé pour un projet particulier. Cela signifie que vous pouvez avoir des dépendances
+spécifiques à un projet sans qu'elles n'interfèrent avec d'autres projets Python que vous pourriez avoir. 
+Cela est particulièrement utile lorsque différents projets nécessitent différentes
+versions de bibliothèques ou de packages.
+
+ds le terminal:
+python3 -m venv env (on crée un repertoire env/ ou on met notre venv)
+source env/bin/activate (on active l'env virtuel)
+(env) : pip install ... Flask 
+(env) : $ echo 'env/' >> .gitignore (on met l'env ds le gitignore pr pas qu'il soit visible)
+(env) : pip freeze (permet de retourner la liste des librairies)
+(env) : pip freeze > requirements.txt 
+(env) : deactivate
+(env) : code app.py (ouvre le fichier app.py sur VSCode)
+(env) : export FLASK_APP=app.py
+(env) : flask run --host=... --port=... (pour lancer le serveur )
+
+

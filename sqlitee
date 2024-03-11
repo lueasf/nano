@@ -1,0 +1,20 @@
+
+SQLITE
+SQLite est une bibliothèque écrite en langage C qui propose un moteur de base 
+de données relationnelle accessible par le langage SQL.
+
+>.open 'fichieren.db'
+>CREATE TABLE [nom] (id INT, nom VARCHAR,...);
+>INSERT INTO [nom] VALUES (..,..);
+>.mode csv (on chosit le type de fichier)
+>.import 'fichieren.csv' [nom de la table]
+.help
+.quit
+.tables
+.schema
+select * from ... (on peut faire du SQL);
+UPDATE [nom table] SET [attribut] = nouvelle valeur;
+DELETE FROM [nom table] where ...;
+DROP TABLE [nom table ] supprime une table
+ALTER TABLE [nom table] ADD COLUMN (nom type);
+

@@ -1,0 +1,24 @@
+linus keybord :
+
+
+ds un terminal : 
+
+-tab = autocoplete
+
+-ctrl maj v = coller
+
+-ctrl maj t = nouvelle fenetre
+
+-ctrl d = fermer l'onglet
+
+-ctrl l = effacer l'écran
+
+-ctrl k = efface le texte a droite du curseur
+
+-ctrl A = deplace le curseur vers le debut
+
+-ctrl E = deplace le curseur vers la fin
+
+-ctrl C = supprime la tache en cours
+
+- alt C = Met en majuscule la lettre où le curseur est et se déplace vers la fin du mot.

@@ -1,0 +1,101 @@
+ONE
+less (chemin) : affiche le contenu du fichier p par p
+du -sh (chemin): affiche la taille des éléments du chemin
+df -h (chemin) : affiche la taille restante sur l'esp de stockage -h : humain
+whoami : nom de l'user
+groups : affiche les groups
+ls -l (chemin) : affiche prop du fichier ligne par ligne
+ps aux : affiche les processus en cours
+top : liste des processus ds l'ordre décroissant
+kill <sign> <pid> avec sign un nombre
+jobs -l : liste des processus en tache de fond
+chmod g-x texte.txt ou g+x texte.txt pour rajouter des droits
+unzip 
+tr pour transformer qqch ex des ";" en \n saut de ligne :
+cat split-me.txt | tr ";" "\n"
+seq -s" " 100 > sequence de 1 a 100 sep par des esp
+sed : pour stream editor  ex : on recup des fichiers avec find | -exec sed -i
+pour modifier
+{} utilisé avec la commande find
+\;  fin de commande exec
+tac  pour retourner un txt
+cat random-numbers.txt | sort|uniq | factor | awk 'NF==2'| wc -l pour trouver
+les nbs premiers avec factor qui trv les facteurs du nb et awk NF ne garde 
+que les lignes qui ont exactement 2 champs. ici 2 fact 
+sort -k1 trie la première colone -n pour numériquement
+rev pour retourner qqch
+bc pour effectuer une opération
+cut -c 2- va garder que les car aprse l'index 2 compris
+awk '{ print $1 }' mon_fichier.txt : affiche la prem colone
+
+COLD EXAM
+find . -name "*.html" -exec grep --color "^Dolores" {} \; | cut -d' ' -f4 |sort|uniq | wc -l :
+-exec pour executer avec grep , cut pour separer avec l'espace et prendre la colone 4
+sort trie, uniq prend l'unique
+grep ^10 access.log | grep -v 362$ | grep -P "\d{4}:06:" | wc -l : pour rechercher dans le fichier 
+log des lignes qui commencent par 10 NE TERMINE PAS par 362 et on été ecrite à 6h
+find * -name "Paralax*" -size +500c|wc -l : compte fichier avec +500 octets de taille
+
+DOUBLE
+ls | sort > liste.txt : return la liste des rep et fichiers tries ds le fich liste.txt
+ps aux|grep firefox: : return les infos du processus firefox dont le pid
+find *.txt|wc-l : combien de fichier txt il y a ds ce rep
+ls *.txt | xargs rm : supprm tous les fichiers en txt du rep actuel
+find . -type f -name "fich.txt" : trouve à partir de . le rep actuel un type f = fichier de nom ...
+
+cat access.log | sort :pour trier le contenu d'un fichier qu'on ouvre
+grep GET access.log | wc -l : afficher le nombre de ligne qui contiennent GET dans un fichier
+echo {1..100} : ecrire les nombres de 1 à 100
+
+RAPPEL :
+grep -o(nly) -P "[[].*[]]" pour extraire uniquement les motifs qui matchent.
+exemple de sed:
+echo "J'aime mon chat. Mon chat est mignon." | sed 's/chat/chien/g'
+J'aime mon chien. Mon chien est mignon.
+CAR sed 's/ MOT À CHANGER / remplacé par ... /g pour global
+donc : 
+sed 's/\[//g; s/\]//g; s/,/\n/g' prends mes [,] et les remplace par rien, donc
+les supprime, puis prends les , et met des retour à la ligne.
+Il faut échaper les char spéciaux comme les [,] et \.
+
+
+SCRIPT
+afficher la somme des nombres dans un fichier :
+let total=0
+     for NUMERO in $(cat sum-me.txt);
+     do let total=$(($total+$NUMERO))
+     done
+     echo $total
+
+
+PROCESSUS
+pour trouver le processus id : pid on utilise pgrep
+pour envoyer un signal à un processus : kill -l permet d'afficher un sig
+et un fait kill -(numéro) pid avec le numéro du signal
+on oublie pas ps aux, top, which qui fait pwd d'une var, env qui affiche les var d'env et export qui crée une var d'env.
+CPU est la central processing unit, gère les processus qui sont multitache sur unix;
+#!bin/bash pour créer un code dans bash
+le hashtag! s'appelle le shebang
+
+
+VAR D'ENV
+printenv
+env affiche les var d'env en cours
+export MAVARIABLE=222
+echo $MAVARIALE
+
+pour modifier de facon permanente:
+nano .bashrc et mettre la ligne export TRUC=truc
+pour enlever un evar d'env mettre : unset NOM
+
+pour savoir si on a un processeur 32 bit ou 64 bit :
+commande : uname -m, x84_64 ou amd64 = 64 bits
+si c'est i386 ou i686 c'ets 32 bits.
+
+
+RECHERCHE DE MOT CLEF
+si dans keywords.txt on a : apple, banana, orange.
+et qu'on veyt chercher chacun des mots clef dans un autre ficher tracks.csv, on peut:
+xargs -I% grep % tracks.csv < keywords.txt
+tel que : Pour chaque mot-clé lu, xargs exécute la commande grep % tracks.csv. Dans cette 
+commande, % est remplacé par le mot-clé actuel lu par xargs.

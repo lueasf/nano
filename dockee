@@ -1,0 +1,48 @@
+DOCKER
+
+TODOAPP:
+on crée un fichier Dockerile à la racine du projet avec :
+# Utiliser une image Python officielle comme base
+FROM python:3.9
+
+# Définir le répertoire de travail dans le conteneur
+WORKDIR /app
+
+# Copier les fichiers nécessaires dans le conteneur
+COPY . .
+
+# Installer les dépendances du projet
+RUN pip install -r requirements.txt
+
+# Exposer le port sur lequel l'application Flask s'exécute
+EXPOSE 5000
+
+# Commande par défaut pour exécuter votre application Flask
+CMD ["python", "app.py"]
+
+puis dans le terminal on lance : 
+# On construit l'image docker à partir du dockerfile, le nom de l'image (que l'on donne grace à -t) est todoappv2. Le "." pour dire que docker va utlisé tous les fichiers du rep actuels.
+docker build -t todoappv2 .
+
+# commande pour executer un conteneur docker à partir d'une image spécifique., -d pour détaché (arrière plan)
+docker run -d -p 5000:5000 todoappv2
+
+une fois que ça marche dans le terminal je peux aller :
+docker run -it [nom] bash et alors je suis dans LE conteneur.
+Dans un autre terminal je peux voir le conteneur touné avec docker ps
+
+
+docker hub  est utilisé pour recup une image (docker pull)
+docker file utilsé pour construire une image (docker build)
+docker compose pour assembler des services
+
+docker run : lance un conteneur
+docker stop : stope un cont
+docker start : relance un cont
+docker rm : suppr un cont
+docker pause : met en pause un cont
+docker image : affiche la liste des images
+docker rmi : supprime une image
+docker compose up : lance un ensemble de service
+docker compose ps : liste les cont lancés
+
