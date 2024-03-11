@@ -100,7 +100,7 @@ printenv
 env affiche les var d'env en cours
 export MAVARIABLE=222
 echo $MAVARIALE
-
+git
 pour modifier de facon permanente:
 nano .bashrc et mettre la ligne export TRUC=truc
 pour enlever un evar d'env mettre : unset NOM
