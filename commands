@@ -1,4 +1,5 @@
 ONE
+grep -rl "mot à trouver" . : pour trouver un mot dans un fichier
 less (chemin) : affiche le contenu du fichier p par p
 du -sh (chemin): affiche la taille des éléments du chemin
 df -h (chemin) : affiche la taille restante sur l'esp de stockage -h : humain
@@ -15,6 +16,7 @@ tr pour transformer qqch ex des ";" en \n saut de ligne :
 cat split-me.txt | tr ";" "\n"
 seq -s" " 100 > sequence de 1 a 100 sep par des esp
 sed : pour stream editor  ex : on recup des fichiers avec find | -exec sed -i
+sed G pour mettre des sauts de ligne
 pour modifier
 {} utilisé avec la commande find
 \;  fin de commande exec
@@ -22,10 +24,10 @@ tac  pour retourner un txt
 cat random-numbers.txt | sort|uniq | factor | awk 'NF==2'| wc -l pour trouver
 les nbs premiers avec factor qui trv les facteurs du nb et awk NF ne garde 
 que les lignes qui ont exactement 2 champs. ici 2 fact 
-sort -k1 trie la première colone -n pour numériquement
+sort -t',' -k1 fichier.txt : trie la première colone -n pour numériquement
 rev pour retourner qqch
 bc pour effectuer une opération
-cut -c 2- va garder que les car aprse l'index 2 compris
+cut -c -2 va garder que les car après l'index 2 compris
 awk '{ print $1 }' mon_fichier.txt : affiche la prem colone
 
 COLD EXAM
@@ -42,6 +44,8 @@ ps aux|grep firefox: : return les infos du processus firefox dont le pid
 find *.txt|wc-l : combien de fichier txt il y a ds ce rep
 ls *.txt | xargs rm : supprm tous les fichiers en txt du rep actuel
 find . -type f -name "fich.txt" : trouve à partir de . le rep actuel un type f = fichier de nom ...
+find . -type f -mtime -1 : trouver les fichiers qui on été modifié ces dernière 24h, la -1 pour 1 jour etc
+
 
 cat access.log | sort :pour trier le contenu d'un fichier qu'on ouvre
 grep GET access.log | wc -l : afficher le nombre de ligne qui contiennent GET dans un fichier
@@ -57,6 +61,19 @@ donc :
 sed 's/\[//g; s/\]//g; s/,/\n/g' prends mes [,] et les remplace par rien, donc
 les supprime, puis prends les , et met des retour à la ligne.
 Il faut échaper les char spéciaux comme les [,] et \.
+MIEUX : 
+find . -type f -name "fichier.txt" -exec sed -i '$a\Nouvelle ligne ajoutée' {} \;
+pour ajouter une ligne à la fin de chaque fichier trouvé
+
+si j'ai un fichier coco:
+az,l
+er,i
+ty,o
+ui,n
+alors avec :
+cat coco | cut -d',' -f2 | tr '\n' ' ' | tr -d ' ' 
+j'ouvre le fichier, je garde que la colone 2 avec le ',' et je remplace les sauts de ligne par des espaces
+mieux : cat coco | tr -d '\n'
 
 
 SCRIPT
